@@ -45,7 +45,6 @@ void print_string(char *str, unsigned char color)
 
 void main(void)
 {
-    /* TODO: Add random f-word here */
     terminal_buffer = (unsigned short *)VGA_ADDRESS;
     vga_index = 0;
 
@@ -56,6 +55,7 @@ void main(void)
     while (1) {
             print_string("42!", color);
             clear_screen();
+            vga_index = 0;
             color++;
             if (color > 15)
                     color = 0;
