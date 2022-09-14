@@ -53,7 +53,7 @@ void main(void)
     enum vga_color color = 0;
 
     while (1) {
-            print_string("42!", color);
+            print_string("hello 42 student", color);
             color++;
 
             vga_index += 80;
