@@ -41,7 +41,9 @@ void main(void)
 
     clear_screen();
     print_string("42", WHITE_COLOR);
+    vga_index = 80;
     print_string("42", YELLOW);
+    vga_index = 160;
     print_string("42", GRAY);
     
     return;
