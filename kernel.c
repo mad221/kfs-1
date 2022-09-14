@@ -51,21 +51,10 @@ void main(void)
     clear_screen();
 
     enum vga_color color = 0;
-
-    while (1) {
-            print_string("hello 42 student", color);
-            color++;
-
-            vga_index += 80;
-            if (vga_index >= 80 * 25) {
-                    vga_index = 0;
-                    clear_screen();
-            } 
-            if (color > 15)
-            {
-                    color = 0;
-            }
-    }
-
+    print_string("Hello 42", color);
+    print_string("This is a test.", color++);
+    print_string("This is a test.", color++);
+    print_string("This is a test.", color++);
+ 
     return;
 }
