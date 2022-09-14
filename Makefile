@@ -14,12 +14,13 @@ all: bootloader kernel linker iso
 
 bootloader: boot.asm
 	nasm -f elf32 boot.asm -o boot.o
+	nasm -f elf32 sleep.asm -o sleep.o
 
 kernel: kernel.c
-	gcc -m32 -c kernel.c -o kernel.o
+	gcc -m32 -c kernel.c -o kernel.o sleep.o
 
 linker: linker.ld boot.o kernel.o
-	ld -m elf_i386 -T linker.ld -o kernel boot.o kernel.o
+	ld -m elf_i386 -T linker.ld -o kernel boot.o kernel.o sleep.o
 
 iso: kernel
 	$(MKDIR) $(GRUB_PATH)

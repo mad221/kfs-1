@@ -1,13 +1,25 @@
 #define VGA_ADDRESS 0xB8000   /* video memory begins here. */
 
-/* VGA provides support for 16 colors */
-#define BLACK 0
-#define BLUE 1
-#define GREEN 2
-#define RED 4
-#define GRAY 8
-#define YELLOW 14
-#define WHITE_COLOR 15
+void usleep(int usec);
+
+enum vga_color {
+    COLOR_BLACK = 0,
+    COLOR_BLUE = 1,
+    COLOR_GREEN = 2,
+    COLOR_CYAN = 3,
+    COLOR_RED = 4,
+    COLOR_MAGENTA = 5,
+    COLOR_BROWN = 6,
+    COLOR_LIGHT_GREY = 7,
+    COLOR_DARK_GREY = 8,
+    COLOR_LIGHT_BLUE = 9,
+    COLOR_LIGHT_GREEN = 10,
+    COLOR_LIGHT_CYAN = 11,
+    COLOR_LIGHT_RED = 12,
+    COLOR_LIGHT_MAGENTA = 13,
+    COLOR_LIGHT_BROWN = 14, // yellow
+    COLOR_WHITE = 15,
+};
 
 unsigned short *terminal_buffer;
 unsigned int vga_index;
@@ -40,11 +52,17 @@ void main(void)
     vga_index = 0;
 
     clear_screen();
-    print_string("42", WHITE_COLOR);
-    vga_index = 80;
-    print_string("42", YELLOW);
-    vga_index = 160;
-    print_string("42", GRAY);
-    
+
+    enum vga_color color = 0;
+
+    while (1) {
+            print_string("42!", color);
+            clear_screen();
+            usleep(250);
+            color++;
+            if (color > 15)
+                    color = 0;
+    }
+
     return;
 }
