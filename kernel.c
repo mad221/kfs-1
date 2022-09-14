@@ -57,6 +57,10 @@ void main(void)
             color++;
 
             vga_index = (vga_index + 80);
+            if (vga_index >= 80 * 25) {
+                    vga_index = 0;
+                    clear_screen();
+            } 
             if (color > 15)
             {
                     color = 0;
