@@ -52,8 +52,11 @@ void main(void)
 
     enum vga_color color = 0;
     print_string("Hello 42", color);
+    vga_index = 80;
     print_string("This is a test.", color++);
+    vga_index = 160;
     print_string("This is a test.", color++);
+    vga_index = 240;
     print_string("This is a test.", color++);
  
     return;
