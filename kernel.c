@@ -55,7 +55,7 @@ void main(void)
     while (1) {
             print_string("42!", color);
             color++;
-            vga_index = (vga_index + 80) % 640; 
+            vga_index = (vga_index + 80) % 2096; 
             if (color > 15)
             {
                     color = 0;
