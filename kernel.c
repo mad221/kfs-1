@@ -53,10 +53,14 @@ void main(void)
     enum vga_color color = 0;
 
     while (1) {
-            print_string("42", color);
-            vga_index = 0;
+            print_string("42!", color);
+            clear_screen();
             color++;
             if (color > 15)
+            {
+                    color = 0;
+                    clear_screen();
+            }
                     color = 0;
     }
 
