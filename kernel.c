@@ -1,7 +1,5 @@
 #define VGA_ADDRESS 0xB8000   /* video memory begins here. */
 
-void usleep(int usec);
-
 enum vga_color {
     COLOR_BLACK = 0,
     COLOR_BLUE = 1,
@@ -58,7 +56,6 @@ void main(void)
     while (1) {
             print_string("42!", color);
             clear_screen();
-            usleep(250);
             color++;
             if (color > 15)
                     color = 0;
