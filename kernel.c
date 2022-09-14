@@ -40,8 +40,9 @@ void main(void)
     vga_index = 0;
 
     clear_screen();
-    print_string("Hello from Linux Journal!", WHITE_COLOR);
-    vga_index = 80;    /* next line */
-    print_string("Goodbye from Linux Journal!", RED);
+    print_string("42", WHITE_COLOR);
+    print_string("42", YELLOW);
+    print_string("42", GRAY);
+    
     return;
 }
