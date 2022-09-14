@@ -36,10 +36,11 @@ void clear_screen(void)
 void print_string(char *str, unsigned char color)
 {
     int index = 0;
+    int vga_index_ = 0;
     while (str[index]) {
             terminal_buffer[vga_index] = (unsigned short)str[index]|(unsigned short)color << 8;
             index++;
-            vga_index++;
+            vga_index_++;
     }
 }
 
@@ -53,7 +54,7 @@ void main(void)
     enum vga_color color = 0;
 
     while (1) {
-            print_string("42!", color);
+            print_string("42", color);
             clear_screen();
             vga_index = 0;
             color++;
